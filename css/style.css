@@ -1,0 +1,315 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --main-bg-color: rgb(148, 7, 7);
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+
+
+
+  /* NavBar */
+ 
+  .navigation{
+    margin-top: 5px;
+    font-family: var(--font1);
+    height: 74px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.logo img{
+  height: 37px;
+  width: 38px;
+  filter: brightness(-100%);
+}
+
+.nav-left{
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-left a{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-left a:hover{
+    color: var(--main-bg-color);
+}
+
+.nav-left ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0 77px;
+    font-size: 18px;
+}
+
+.nav-left ul li{
+    list-style: none;
+    padding: 0px 5px;
+    margin: 0 14px;
+    font-family: var(--font2);
+    transition: all 0.25s ease-in-out;
+}
+
+.nav-left ul li:hover{
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 2px solid var(--main-bg-color);
+}
+
+.nav-left ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-right{
+
+}
+
+.b-style{
+
+}
+
+
+
+
+/* Banner */
+
+.b-text{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    font-weight: 900;
+    padding: 16px 30px;
+}
+
+.b-text2{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: #ff9100;
+    font-size: 30px;
+    font-weight: 900;
+    padding: 16px 30px;
+}
+
+.b-text3{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: #ff9100;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 16px 30px;
+}
+
+
+.container .btn1 {
+    position: absolute;
+    top: 69%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #8ab92d;
+    color: white;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    text-align: center;
+    font-family: var(--font2);
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+
+
+
+  /* Content */
+.container .btn1:hover {
+    background-color: #8ab92d77;
+    color: black ;
+    font-weight: bolder;
+    border: 2px solid black;
+    font-size: 18px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+.content{
+    height: 100%;
+    /* background-color: blue; */
+}
+
+.content h1{
+    text-align: center;
+    color:black;
+    /* background-color: yellow; */
+    padding: 10px 0;
+    font-family: var(--font1);
+}
+
+.container2 {
+    display: flex;
+    width: 90%;
+    margin: 50px auto;
+  }
+  .heading {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 20%;
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+    transition: 0.3s;
+  }
+  
+  .card-header {
+    text-align: center;
+    padding: 50px 10px;
+    background-image: url("../imgs/udaipur.jpg");
+    background-repeat: no-repeat;
+    color: #fff;
+  }
+  
+  .card-body {
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .card-body .btn {
+    display: block;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    margin-top: 30px;
+    text-decoration: none;
+    padding: 10px 5px;
+  }
+
+  .card-body .btn:hover{
+      background: linear-gradient(to right, gray, gray);
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.719);
+  }
+
+  .card h1{
+      color: white;
+  }
+
+  /* imgs tour*/
+  .tr1{
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(59, 51, 51, 0.2)),url("../imgs/tour/tr1.jpg");
+    background-size: 100% 100%;
+    
+  }
+
+  .tr2{
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(59, 51, 51, 0.2)),url("../imgs/tour/tr2.jpg");
+    background-size: 100% 100%;
+  }
+
+  .tr3{
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(59, 51, 51, 0.2)),url("../imgs/tour/tr3.jpg");
+    background-size: 100% 100%;
+  }
+
+  .tr4{
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(59, 51, 51, 0.2)),url("../imgs/tour/tr4.jpg");
+    background-size: 100% 100%;
+  }
+
+  
+  
+  /* About  */
+  .ab-img{
+      background-image: linear-gradient(0deg, rgba(63, 55, 55, 0.4), rgba(59, 51, 51, 0.2)),url("../imgs/jal-mahal.jpg");
+      height: 550px;
+      width: 100%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .about{
+      font-family: var(--font2);
+      font-size: 20px;
+  }
+
+#ab-content{
+      color: white;
+      background-color: rgba(255, 255, 255, 0.295);
+      padding: 50px 50px;
+      border-radius: 20px;
+}
+
+#ab-content button:hover{
+    background-color: blue;
+}
+
+.row ul{
+    /* background-color: yellow; */
+    margin: 20px 0;
+}
+
+.row ul li{
+      /* background-color: black; */
+      margin: 10px 10px;
+      
+  }
+
+#ab{
+      font-size: 50px;
+  }
+
+#ab2{
+    font-size: 50px;
+}
+
+
+
+ 
+  

@@ -1,0 +1,215 @@
+
+#love{
+  font-size: 50px;
+  color: black;
+}
+
+.gcard-header {
+  text-align: center;
+  padding: 50px 10px;
+  height: 143px;
+  /* background-color: green; */
+  background-image: url("../imgs/udaipur.jpg");
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.gcard-body {
+  padding: 5px 15px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.grow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.gcard {
+  width: 29.33%;
+  height: 286px;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-bottom: 50px;
+  transition: 0.3s;
+}
+
+.gcard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px -10px green;
+}
+
+.gcard-body p{
+  font-weight: bolder;
+  font-family:var(--font1);
+}
+
+
+/* Imgs */
+
+#jaipur{
+  background-image: url("../imgs/gallery/jaipur.jpg");
+  background-size: 100% 100%;
+}
+
+#jodhpur{
+  background-image: url("../imgs/gallery/jodhpur.jpg");
+  background-size: 100% 100%;
+}
+
+#udaipur{
+  background-image: url("../imgs/gallery/udaipur.jpg");
+  background-size: 100% 100%;
+}
+
+#chittorgarh{
+  background-image: url("../imgs/gallery/chittorgarh.jpg");
+  background-size: 100% 100%;
+}
+
+#jaisalmer{
+  background-image: url("../imgs/gallery/jaisalmer.jpg");
+  background-size: 100% 100%;
+}
+
+#ajmer{
+  background-image: url("../imgs/gallery/ajmer.jpg");
+  background-size: 100% 100%;
+}
+
+#banswara{
+  background-image: url("../imgs/gallery/banswara.jpg");
+  background-size: 100% 100%;
+}
+
+#alwar{
+  background-image: url("../imgs/gallery/alwar.jpg");
+  background-size: 100% 100%;
+}
+
+#barmer{
+  background-image: url("../imgs/gallery/barmer.jpg");
+  background-size: 100% 100%;
+}
+
+#bikaner{
+  background-image: url("../imgs/gallery/bikaner.jpg");
+  background-size: 100% 100%;
+}
+
+#bharatpur{
+  background-image: url("../imgs/gallery/bharatpur.jpg");
+  background-size: 100% 100%;
+}
+
+#bhilwara{
+  background-image: url("../imgs/gallery/bhilwara.jpg");
+  background-size: 100% 100%;
+}
+
+#baran{
+  background-image: url("../imgs/gallery/baran.jpg");
+  background-size: 100% 100%;
+}
+
+#bundi{
+  background-image: url("../imgs/gallery/bundi.jpg");
+  background-size: 100% 100%;
+}
+
+#churu{
+  background-image: url("../imgs/gallery/churu.jpg");
+  background-size: 100% 100%;
+}
+
+#dausa{
+  background-image: url("../imgs/gallery/dausa.jpg");
+  background-size: 100% 100%;
+}
+
+#dholpur{
+  background-image: url("../imgs/gallery/dholpur.jpg");
+  background-size: 100% 100%;
+}
+
+#dungarpur{
+  background-image: url("../imgs/gallery/dungarpur.jpg");
+  background-size: 100% 100%;
+}
+
+#hanumangarh{
+  background-image: url("../imgs/gallery/hanumangarh.jpg");
+  background-size: 100% 100%;
+}
+
+#jhunjhunu{
+  background-image: url("../imgs/gallery/jhunjhunu.jpg");
+  background-size: 100% 100%;
+}
+
+#jhalawar{
+  background-image: url("../imgs/gallery/jhalawar.jpg");
+  background-size: 100% 100%;
+}
+
+#jalor{
+  background-image: url("../imgs/gallery/jalore.jpg");
+  background-size: 100% 100%;
+}
+
+#nagaur{
+  background-image: url("../imgs/gallery/nagaur.jpg");
+  background-size: 100% 100%;
+}
+
+#kota{
+  background-image: url("../imgs/gallery/kota.jpg");
+  background-size: 100% 100%;
+}
+
+#karauli{
+  background-image: url("../imgs/gallery/karauli.jpg");
+  background-size: 100% 100%;
+}
+
+#pali{
+  background-image: url("../imgs/gallery/pali.jpg");
+  background-size: 100% 100%;
+}
+
+#pratapgarh{
+  background-image: url("../imgs/gallery/pratapgarh.jpg");
+  background-size: 100% 100%;
+}
+
+#rajsamand{
+  background-image: url("../imgs/gallery/rajsamand.jpg");
+  background-size: 100% 100%;
+}
+
+#sawaimadhopur{
+  background-image: url("../imgs/gallery/sawaimadhopur.jpg");
+  background-size: 100% 100%;
+}
+
+#sirohi{
+  background-image: url("../imgs/gallery/sirohi.jpg");
+  background-size: 100% 100%;
+}
+
+#sikar{
+  background-image: url("../imgs/gallery/sikar.jpg");
+  background-size: 100% 100%;
+}
+
+#sriganganagar{
+  background-image: url("../imgs/gallery/sriganganagar.jpg");
+  background-size: 100% 100%;
+}
+
+#tonk{
+  background-image: url("../imgs/gallery/tonk.jpg");
+  background-size: 100% 100%;
+}

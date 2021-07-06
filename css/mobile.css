@@ -1,0 +1,67 @@
+@media screen and (max-width: 1300px) {
+    
+   html {
+        overflow-x: hidden;
+        font-size: x-small;
+    }
+
+    .navigation {
+      flex-direction: column;
+      margin-bottom: 23px;
+    }
+  
+    .nav-left {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .nav-right{
+      margin-top: 15px;
+    }
+
+    .content{
+      margin: 273px 21px;
+    }
+
+    .b-text{
+     display: none;
+  }
+  
+  .b-text2{
+      display: none;
+  }
+  
+  .b-text3{
+      display: none;
+  }
+
+    #slider figure img{
+        margin-top: 80px;
+    }
+
+    .container .banner .btn1{
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .container2 {
+      width: 100%;
+    }
+  
+    .card {
+      width: 80%;
+    }
+  }
+
+  .c-align{
+    
+  }
+    
