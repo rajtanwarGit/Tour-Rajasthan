@@ -84,16 +84,28 @@
 
 
 
-/* contact us */
+/* contact */
 
-.f-right{
-    width: 40%;
+.c-align{
+  display: flex;
+  justify-content: center;
+  font-family: var(--font2);
+  margin: 60px 25px;
+  /* background-color: red;
+  height: 100%; */
+}
+
+
+
+.c-left{
+    /* width: 40%; */
     padding: 124px 56px;
-    /* background-color: red; */
+    padding-right: 200px;
+    /* background-color: blue; */
     text-align: center;
 }
 
-.f-right span{
+.c-left span{
     text-align: center;
     font-size: xx-large;
 }
@@ -103,69 +115,23 @@
     font-size: xx-large;
 }
 
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: var(--font2);
-    
-}
-
-/* Style inputs with type="text", select elements and textareas */
-
-  /* Style the submit button with a specific background color etc */
-  .form input[type=submit] {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px 20px;
-    margin: 14px 23%;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 50%;
-  }
-  
-  /* When moving the mouse over the submit button, add a darker green color */
-  .form input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
-  /* Add a background color and some padding around the form */
-  .c-form {
+  .c-logo {
     border-radius: 5px;
-    padding: 86px 130px;
-    width: 500px;
+    text-align: center;
+    padding-left: 100px;
+    /* width: 500px; */
     /* background-color: yellow; */
   }
 
-
-  /* aligning form & content */
-  .c-align{
-    display: flex;
-    justify-content: center;
-    font-family: var(--font2);
-    margin: 60px 25px;
+  .c-logo img {
+    filter: brightness(-100%);
   }
 
-  #name{
-    padding: 8px 4px;
-    margin: 2px 0;
+  .c-logo h1 {
+    font-size: xx-large;
   }
 
-  #email{
-    padding: 8px 4px;
-    margin: 2px 0;
-  }
 
-  #country{
-    padding: 8px 4px;
-    margin: 2px 0;
-  }
-
-  #msg{
-    padding: 8px 4px;
-    margin: 2px 0;
-  }
 
 
   /* Footer */
