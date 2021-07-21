@@ -1,11 +1,13 @@
 <?php
 
 // DB Connection
-require_once 'db/config.php';
-require_once 'db/insert_modal.php';
-require_once 'db/fetch_city.php';
+require_once '../db/config.php';
+require_once '../db/insert_modal.php';
+include '../db/blogs_logic.php';
+
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,13 +18,11 @@ require_once 'db/fetch_city.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Rajasthan</title>
     <!-- add icon link -->
-    <link rel="icon" href="icon/logo.png" type="image/x-icon">
+    <link rel="icon" href="../icon/logo.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/utils.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="css/mobile.css">
-
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/modal.css">
 
 
     <!-- Material Design Bootstrap -->
@@ -39,11 +39,10 @@ require_once 'db/fetch_city.php';
 
 <body>
 
-
     <!-- NavBar -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand mb-0 h1" href="#">
+            <a class="navbar-brand mb-0 h1" href="../index.php">
                 <img src="/icon/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo" style="filter: brightness(-100%);">
                 Tour Rajasthan</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,19 +52,19 @@ require_once 'db/fetch_city.php';
             <div class="collapse navbar-collapse navItems" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-3">
                     <li class="nav-item mx-2">
-                        <a class="nav-link activeLink" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="../index.php">Home</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#gallery">Places</a>
+                        <a class="nav-link" href="../index.php#gallery">Places</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="#">Things To Do in Rajasthan</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="blog/blogs.php">Blogs</a>
+                        <a class="nav-link activeLink" href="#">Blogs</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="../index.php#about">About</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -78,295 +77,87 @@ require_once 'db/fetch_city.php';
     </nav>
 
 
+    <!-- Content -->
+    <div class="container-fluid mt-5">
 
-    <!-- Carousel -->
-    <!--Carousel Wrapper-->
-    <div id="carousel-example-2" class="carousel slide" data-ride="carousel">
-        <!--Indicators-->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-2" data-slide-to="1"></li>
-            <li data-target="#carousel-example-2" data-slide-to="2"></li>
-            <li data-target="#carousel-example-2" data-slide-to="3"></li>
-        </ol>
-        <!--/.Indicators-->
-        <!--Slides-->
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <div class="view">
-                    <img class="d-block w-100" src="/imgs/museum.jpg" alt="First slide">
-                    <div class="mask rgba-black-strong full-bg-img flex-center white-text">
-                        <ul class="animated fadeInUp col-md-12 list-unstyled list-inline hide">
-                            <li>
-                                <p class="h2-responsive font-weight-bold text-uppercase py-1 hide" style="color: orange;">पधारो म्हारे देश</p>
-                            </li>
-                            <li>
-                                <p class="h1-responsive font-weight-bold text-uppercase py-1 hide">INCREDIBLE RAJASTHAN!</p>
-                            </li>
-                            <li>
-                                <p class="h3-responsive font-weight-bold text-uppercase py-2 hide" style="color: orange;">BE ON A DATE WITH YOURSELF IN RAJASTHAN </p>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#gallery" class="btn btn-lg rounded-pill" style="background-color: #8ab92d;transition: all 0.3s ease-in-out;">Explore <i class="fas fa-search-location"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+        <!-- Display any info -->
+        <?php if (isset($_REQUEST['info'])) { ?>
+            <?php if ($_REQUEST['info'] == "added") { ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle"></i>&nbsp;Post has been ADDED successfully
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <div class="carousel-caption">
-                    <h3 class="h3-responsive">Junagarh Museum</h3>
-                    <p>Bikaner, Rajasthan</p>
+            <?php } else if ($_REQUEST['info'] == "updated") { ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle"></i>&nbsp;Post has been UPDATED successfully
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <!--Mask color-->
-                <div class="view">
-                    <img class="d-block w-100" src="/imgs/hawamahal.jpg" alt="Second slide">
-                    <div class="mask rgba-black-strong full-bg-img flex-center white-text">
-                        <ul class="animated fadeInUp col-md-12 list-unstyled list-inline hide">
-                            <li>
-                                <p class="h2-responsive font-weight-bold text-uppercase py-1 hide" style="color: orange;">पधारो म्हारे देश</p>
-                            </li>
-                            <li>
-                                <p class="h1-responsive font-weight-bold text-uppercase py-1 hide">INCREDIBLE RAJASTHAN!</p>
-                            </li>
-                            <li>
-                                <p class="h3-responsive font-weight-bold text-uppercase py-2 hide" style="color: orange;">BE ON A DATE WITH YOURSELF IN RAJASTHAN </p>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#gallery" class="btn btn-lg rounded-pill" style="background-color: #8ab92d;transition: all 0.3s ease-in-out;">Explore <i class="fas fa-search-location"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+            <?php } else if ($_REQUEST['info'] == "deleted") { ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle"></i>&nbsp;Post has been DELETED successfully
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <div class="carousel-caption">
-                    <h3 class="h3-responsive">HawaMahal</h3>
-                    <p>Jaipur, Rajasthan</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <!--Mask color-->
-                <div class="view">
-                    <img class="d-block w-100" src="/imgs/desert.jpg" alt="Third slide">
-                    <div class="mask rgba-black-light full-bg-img flex-center white-text">
-                        <ul class="animated fadeInUp col-md-12 list-unstyled list-inline hide">
-                            <li>
-                                <p class="h2-responsive font-weight-bold text-uppercase py-1 hide" style="color: orange;">पधारो म्हारे देश</p>
-                            </li>
-                            <li>
-                                <p class="h1-responsive font-weight-bold text-uppercase py-1 hide">INCREDIBLE RAJASTHAN!</p>
-                            </li>
-                            <li>
-                                <p class="h3-responsive font-weight-bold text-uppercase py-2 hide" style="color: orange;">BE ON A DATE WITH YOURSELF IN RAJASTHAN </p>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#gallery" class="btn btn-lg rounded-pill" style="background-color: #8ab92d;transition: all 0.3s ease-in-out;">Explore <i class="fas fa-search-location"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="carousel-caption">
-                    <h3 class="h3-responsive">Sand Dunes</h3>
-                    <p>Rajasthan</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <!--Mask color-->
-                <div class="view">
-                    <img class="d-block w-100" src="/imgs/hills.jpg" alt="Fourth slide">
-                    <div class="mask rgba-black-light full-bg-img flex-center white-text">
-                        <ul class="animated fadeInUp col-md-12 list-unstyled list-inline hide">
-                            <li>
-                                <p class="h2-responsive font-weight-bold text-uppercase py-1 hide" style="color: orange;">पधारो म्हारे देश</p>
-                            </li>
-                            <li>
-                                <p class="h1-responsive font-weight-bold text-uppercase py-1 hide">INCREDIBLE RAJASTHAN!</p>
-                            </li>
-                            <li>
-                                <p class="h3-responsive font-weight-bold text-uppercase py-2 hide" style="color: orange;">BE ON A DATE WITH YOURSELF IN RAJASTHAN </p>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#gallery" class="btn btn-lg rounded-pill" style="background-color: #8ab92d;transition: all 0.3s ease-in-out;">Explore <i class="fas fa-search-location"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="carousel-caption">
-                    <h3 class="h3-responsive">Bahubali Hills</h3>
-                    <p>Udaipur, Rajasthan</p>
-                </div>
-            </div>
+            <?php } ?>
+        <?php } ?>
+
+
+        <!-- Create a new Post button -->
+        <div class="text-center">
+            <a href="/blogs/login.php" class="btn btn-outline-dark rounded">+ Create a new post</a>
         </div>
-        <!--/.Slides-->
-        <!--Controls-->
-        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-        <!--/.Controls-->
-    </div>
 
 
-    <!-- Mobile -->
-    <div class="container-fluid text-center my-5 show">
-        <ul class="animated fadeInUp col-md-12 list-unstyled list-inline">
-            <li>
-                <h2 class="font-weight-bold text-uppercase py-1" style="color: orange;">पधारो म्हारे देश</h2>
-            </li>
-            <li>
-                <h1 class="font-weight-bold text-uppercase py-1">INCREDIBLE RAJASTHAN!</h1>
-            </li>
-            <li>
-                <h3 class="font-weight-bold text-uppercase py-2" style="color: orange;">BE ON A DATE WITH YOURSELF IN RAJASTHAN </h3>
-            </li>
-            <li class="list-inline-item">
-                <a href="#gallery" class="btn btn-lg rounded-pill" style="background-color: #8ab92d;transition: all 0.3s ease-in-out;">Explore <i class="fas fa-search-location"></i></a>
-            </li>
-        </ul>
-    </div>
-
-
-
-
-
-    <!-- Tour Packages -->
-    <div class="container-fluid p-5">
-        <p class="h1-responsive d-flex align-items-center justify-content-center"><b>Rajasthan Tour Packages</b></p>
-
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col my-3">
-                <div class="card h-100 text-center">
-                    <img src="imgs/tour/tr1.jpg" class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">16 Days-Jaisalmer Rajasthan Tour</h5>
-                        <p class="card-text">
-                            Jaipur - Pushkar - Udaipur - Jodhpur - Jaisalmer - Bikaner -Mandawa
-                        </p>
-                        <a href="#!" class="btn peach-gradient btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Know More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col my-3">
-                <div class="card h-100 text-center">
-                    <img src="imgs/tour/tr2.jpg" class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">15 Days-Jaipur Rajasthan Tour Itinerary</h5>
-                        <p class="card-text">
-                            Jaipur - Samode - Mandawa - Khimsar - Jaisalmer - Jodhpur - Udaipur
-                        </p>
-                        <a href="#!" class="btn peach-gradient btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Know More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col my-3">
-                <div class="card h-100 text-center">
-                    <img src="imgs/tour/tr3.jpg" class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">24 Days-Camel Safari Rajasthan Tour</h5>
-                        <p class="card-text">
-                            Ajmer - Jaisalmer - Jodhpur - Udaipur - Chittaurgarh - Sawai Madhopur
-                        </p>
-                        <a href="#!" class="btn peach-gradient btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Know More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col my-3">
-                <div class="card h-100 text-center">
-                    <img src="imgs/tour/tr4.jpg" class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">15 Days-Rajasthan Forts & Palaces Tour</h5>
-                        <p class="card-text">
-                            Madhogarh - Jaipur - Chhatra Sagar - Udaipur - Rohet - Jaisalmer - Khimsar - Samode
-                        </p>
-                        <a href="#!" class="btn peach-gradient btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Know More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- About US -->
-    <div class="container-fluid p-5" id="about">
-        <p class="h1-responsive d-flex align-items-center justify-content-center"><b>About Us</b></p>
-        <div class="container-lg p-5" id="about-info">
-            <p class="h3-responsive text-white">About Tour Rajasthan</p>
-            <span class="h6-responsive text-white">
-                <ul>
-                    <li>We have wide Varieties of Hotel & Resorts to accomodate you. 3D4N or 15D16N totally
-                        upto
-                        you.</li>
-                    <li>Ammenties Selection for every price options.</li>
-                    <li>Visa Ready - we got you everything covered.</li>
-                    <li>Personalized Travel Plans section bachelors to couples.</li>
-                    <li>Minimal custom duties and charges so you are free to explore your own unique options.
-                    </li>
-                </ul>
-            </span>
-            <a href="#contact" type="button" class="btn btn-info rounded-pill">Contact Us</a>
-        </div>
-    </div>
-
-
-
-    <!-- Gallery -->
-    <div class="container-fluid p-5" id="gallery">
-        <p class="h1-responsive d-flex align-items-center justify-content-center"><b>You'll fall in love with Rajasthan</b></p>
-
-        <div class="row row-cols-1 row-cols-lg-3 g-4">
+        <!-- Display posts from database -->
+        <div class="row mb-5">
             <?php
-            foreach ($query as $q) {
-                $cityName = $q['city'] ?>
-                <div class="col my-3">
-                    <a href="<?php echo "city.php?city=$cityName"; ?>">
-                        <div class="card h-100 text-center rounded shadow-sm city-card" style="border: 1px solid #ccc;">
-                            <img class="img-fluid" src="<?php echo $q['city_img']  ?>" class="img-fluid rounded-start" alt="city_img">
-                            <div class="card-body">
-                                <h5 class="card-title"><b><?php echo $q['city_name']; ?></b></h5>
-                                <p class="card-text"><?php echo $q['city_quote']; ?></p>
-                            </div>
+            foreach ($query as $q) { ?>
+                <div class="col-12 col-lg-4 d-flex justify-content-center">
+                    <div class="card text-dark bg-light mt-5" style="width: 18rem;">
+                        <!-- <img src="..." class="img-fluid rounded-start" alt="..."> -->
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $q['title']; ?></h5>
+                            <p class="card-text"><?php echo substr($q['content'], 0, 50); ?>...</p>
+                            <a href="/blogs/blog_readmore.php?id=<?php echo $q['id'] ?>" class="btn btn-dark rounded-pill">Read More <span class="text-danger">&rarr;</span></a>
                         </div>
-                    </a>
+                        <div class="card-footer text-muted d-flex justify-content-center">
+                            <?php echo $datetime;  ?>
+                        </div>
+                    </div>
                 </div>
             <?php }  ?>
         </div>
-    </div>
 
-
-
-    <!-- Contact Us -->
-    <div class="container-fluid my-5" id="contact">
-        <p class="h1-responsive d-flex align-items-center justify-content-center"><b>Contact Us</b></p>
-    </div>
-
-    <!--The div element for the map -->
-    <div class="mapouter">
-        <div class="gmap_canvas"><iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=jaipur&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-            <a href="https://putlocker-is.org">putlocker</a><br>
-            <style>
-                .mapouter {
-                    height: 400px;
-                    width: 100%;
-                }
-            </style>
-            <a href="https://www.embedgooglemap.net">website maps free</a>
-            <style>
-                .gmap_canvas {
-                    overflow: hidden;
-                    background: none !important;
-                    height: 400px;
-                    width: 100%;
-                }
-            </style>
-        </div>
     </div>
 
 
 
 
+    <!-- Pagination -->
+    <nav aria-label="...">
+        <ul class="pagination pagination-circle justify-content-center">
+            <li class="page-item <?php
+                                    if ($page == 1) {
+                                        echo "disabled";
+                                    }
+                                    ?>">
+                <a class="page-link" href="blogs.php?page=<?= ($page - 1); ?>" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <?php for ($i = 1; $i <= $pages; $i++) { ?>
+                <li class="page-item <?php
+                                        if ($page == $i) {
+                                            echo "active";
+                                        }
+                                        ?>"><a class="page-link" href="blogs.php?page=<?= $i; ?>"><?= $i; ?></a></li>
+            <?php } ?>
+            <li class="page-item <?php
+                                    if ($page == $pages) {
+                                        echo "disabled";
+                                    }
+                                    ?>">
+                <a class="page-link" href="blogs.php?page=<?= ($page + 1); ?>">Next</a>
+            </li>
+        </ul>
+    </nav>
 
 
 
@@ -403,7 +194,7 @@ require_once 'db/fetch_city.php';
                 <div class="col-md-6 mb-md-0 mb-3 d-flex flex-column align-items-center justify-content-center">
 
                     <!-- Content -->
-                    <p class=""><img class="img-fluid" src="/icon/logo.png" alt="logo"></p>
+                    <p class=""><img class="img-fluid" src="../icon/logo.png" alt="logo"></p>
 
                 </div>
             </div>
@@ -441,6 +232,8 @@ require_once 'db/fetch_city.php';
         </div>
 
     </footer>
+
+
 
 
     <!-- Modal -->
@@ -766,13 +559,6 @@ require_once 'db/fetch_city.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-
-
-
-
-
-
 
 
 
